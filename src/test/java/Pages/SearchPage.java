@@ -4,13 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.openqa.selenium.support.ui.ExpectedCondition.*;
+
 
 public class SearchPage {
     WebDriver driver;
@@ -34,19 +33,19 @@ public class SearchPage {
         driver.findElement(searchButton).click();
     }
 
-    public void filterDellbrand(){
+    public void filterDellbrand() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-       WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(dellcheckbox));
-       ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",element);
-       try{
-           Thread.sleep(2000);
-       }catch(Exception e){
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(dellcheckbox));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
 
-       }
 
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click();",element);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
-       wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-component-type='s-search-result']")));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-component-type='s-search-result']")));
+        }
     }
 
     public void clickDellLaptop(){
